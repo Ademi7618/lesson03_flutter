@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:lesson02_flutter/data/model/weather_response_model.dart';
 
+
 class WeatherApiService {
   final Dio _dio = Dio(
     BaseOptions(
