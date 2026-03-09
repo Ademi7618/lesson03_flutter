@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lesson02_flutter/bloc1/todo_bloc.dart';
 import 'package:lesson02_flutter/data/api_service/todo_api_service.dart';
-import 'package:lesson02_flutter/ui/deteil_page.dart';
+import 'package:lesson02_flutter/ui/detail_todo/detail_todo_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -30,21 +30,17 @@ class _HomeView extends StatelessWidget {
             if (state is LoadedAllTodoState) {
               return ListView.builder(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
-                itemCount: state.listTodoModel.todos.length,
+                itemCount: state.todoModel.todos.length,
                 itemBuilder: (context, index) {
-                  final todo = state.listTodoModel.todos[index];
+                  final todo = state.todoModel.todos[index];
 
                   return InkWell(
                     onTap: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => DeteilPage(
-                            id: todo.id,
-                            todo: todo.todo,
-                            completed: todo.completed,
-                            userId: todo.userId,
-                          ),
+                          builder: (context) =>
+                              DetailTodoPage(todoId: todo.id),
                         ),
                       );
                     },

@@ -34,7 +34,7 @@ class TodoBloc extends Bloc<TodoEvent, TodoState> {
     emit(LoadingTodoState());
     try {
       final ListTodoModel listTodoModel = await _api.getListTodo();
-      emit(LoadedAllTodoState(listTodoModel: listTodoModel));
+      emit(LoadedAllTodoState(todoModel: listTodoModel));
     } catch (e, stackTrace) {
       print(e);
       print(stackTrace);

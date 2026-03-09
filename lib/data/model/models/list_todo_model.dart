@@ -17,6 +17,8 @@ class ListTodoModel extends Equatable{
   @override
   List<Object?> get props => [todos];
 
+  get userId => null;
+
 }
 
 class TodoModel extends Equatable{

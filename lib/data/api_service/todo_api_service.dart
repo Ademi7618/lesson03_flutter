@@ -21,6 +21,12 @@ class TodoApiService {
     return listTodoModel;
   }
 
+  Future<TodoModel> getTodoList({required String id}) async {
+    final Response response = await _dio.get("todos/$id");
+    final TodoModel todosModel = TodoModel.fromJson(response.data);
+    return todosModel;
+  }
+
   Future<TodoModel> updateTodo({
     required int id,
     required bool completed,

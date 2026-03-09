@@ -11,9 +11,9 @@ class CountryResponseModel extends Equatable {
 
   factory CountryResponseModel.fromJson(Map<String, dynamic> json) {
     return CountryResponseModel(
-      generationtimeMs:
-          (json['generationtime_ms'] as num?)?.toDouble() ?? 0.0,
-      results: (json['results'] as List<dynamic>?)
+      generationtimeMs: (json['generationtime_ms'] as num?)?.toDouble() ?? 0.0,
+      results:
+          (json['results'] as List<dynamic>?)
               ?.map((e) => CityModel.fromJson(e))
               .toList() ??
           [],
@@ -23,6 +23,8 @@ class CountryResponseModel extends Equatable {
   @override
   List<Object?> get props => [generationtimeMs, results];
 }
+
+
 
 class CityModel extends Equatable {
   final String name;
@@ -53,6 +55,12 @@ class CityModel extends Equatable {
   }
 
   @override
-  List<Object?> get props =>
-      [name, latitude, longitude, countryCode, timezone, country];
+  List<Object?> get props => [
+    name,
+    latitude,
+    longitude,
+    countryCode,
+    timezone,
+    country,
+  ];
 }
